@@ -170,6 +170,27 @@ window.addEventListener('scroll', requestTick);
 
 console.log('🎉 All systems loaded successfully!');
 
+// ==================== REDIRECTION CODALLY ====================
+// Gestionnaire de clic pour l'image Codally
+document.addEventListener('DOMContentLoaded', function() {
+    const codallyImage = document.querySelector('img[src="assets/img/codally.png"]');
+    
+    if (codallyImage) {
+        // Ajouter un style de curseur pointer pour indiquer que l'image est cliquable
+        codallyImage.style.cursor = 'pointer';
+        
+        // Ajouter le gestionnaire d'événement de clic
+        codallyImage.addEventListener('click', function() {
+            console.log('🔗 Redirection vers Codally...');
+            window.open('https://www.codally.app', '_blank');
+        });
+        
+        console.log('✅ Gestionnaire de clic Codally initialisé!');
+    } else {
+        console.error('❌ Image Codally non trouvée!');
+    }
+});
+
 // ==================== FONCTIONS DE DEBUG ====================
 window.debugNavbarStatus = function() {
     const mobileToggle = document.getElementById('mobileToggle');
