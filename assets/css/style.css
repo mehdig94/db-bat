@@ -1167,6 +1167,14 @@ p {
   opacity: 0.9;
 }
 
+/* Uniformisation de la taille des logos partenaires */
+.partner img[src*="codally.png"],
+.partner img[src*="logoici.png"] {
+  width: 180px;
+  height: 80px;
+  object-fit: contain;
+}
+
 .partner:hover img {
   filter: grayscale(0%) brightness(1);
   opacity: 1;

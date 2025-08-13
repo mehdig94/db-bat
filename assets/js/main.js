@@ -173,22 +173,51 @@ console.log('🎉 All systems loaded successfully!');
 // ==================== REDIRECTION CODALLY ====================
 // Gestionnaire de clic pour l'image Codally
 document.addEventListener('DOMContentLoaded', function() {
-    const codallyImage = document.querySelector('img[src="assets/img/codally.png"]');
-    
-    if (codallyImage) {
-        // Ajouter un style de curseur pointer pour indiquer que l'image est cliquable
-        codallyImage.style.cursor = 'pointer';
+    // Attendre un peu plus longtemps pour s'assurer que tout est chargé
+    setTimeout(function() {
+        const codallyImages = document.querySelectorAll('img[src="assets/img/codally.png"]');
+        console.log('🔍 Images Codally trouvées:', codallyImages.length);
         
-        // Ajouter le gestionnaire d'événement de clic
-        codallyImage.addEventListener('click', function() {
-            console.log('🔗 Redirection vers Codally...');
-            window.open('https://www.codally.app', '_blank');
+        codallyImages.forEach(function(codallyImage, index) {
+            // Ajouter un style de curseur pointer pour indiquer que l'image est cliquable
+            codallyImage.style.cursor = 'pointer';
+            
+            // Ajouter le gestionnaire d'événement de clic
+            codallyImage.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('🔗 Redirection vers Codally... (Image', index + 1, ')');
+                window.open('https://www.codally.app', '_blank');
+            });
+            
+            console.log('✅ Gestionnaire de clic Codally initialisé pour l\'image', index + 1);
         });
+    }, 100);
+});
+
+// ==================== REDIRECTION LOGOICI ====================
+// Gestionnaire de clic pour l'image Logoici
+document.addEventListener('DOMContentLoaded', function() {
+    // Attendre un peu plus longtemps pour s'assurer que tout est chargé
+    setTimeout(function() {
+        const logoiciImages = document.querySelectorAll('img[src="assets/img/logoici.png"]');
+        console.log('🔍 Images Logoici trouvées:', logoiciImages.length);
         
-        console.log('✅ Gestionnaire de clic Codally initialisé!');
-    } else {
-        console.error('❌ Image Codally non trouvée!');
-    }
+        logoiciImages.forEach(function(logoiciImage, index) {
+            // Ajouter un style de curseur pointer pour indiquer que l'image est cliquable
+            logoiciImage.style.cursor = 'pointer';
+            
+            // Ajouter le gestionnaire d'événement de clic
+            logoiciImage.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('🔗 Redirection vers Quotio... (Image', index + 1, ')');
+                window.open('https://www.quotio.io', '_blank');
+            });
+            
+            console.log('✅ Gestionnaire de clic Logoici initialisé pour l\'image', index + 1);
+        });
+    }, 100);
 });
 
 // ==================== FONCTIONS DE DEBUG ====================
