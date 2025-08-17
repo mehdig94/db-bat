@@ -1331,6 +1331,18 @@ p {
   min-height: 22px;
 }
 
+.form-info {
+  margin-top: var(--space-md);
+  font-size: 0.85rem;
+  color: var(--gray-400);
+  font-style: italic;
+  text-align: center;
+  padding: var(--space-sm);
+  background: rgba(255, 107, 53, 0.1);
+  border-left: 3px solid var(--orange-500);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
 .submit {
   margin-top: var(--space-md);
 }

@@ -112,7 +112,7 @@ document.querySelectorAll('.reveal').forEach(function(el) {
     observer.observe(el);
 });
 
-// Formulaire de contact
+// Formulaire de contact - Envoi direct par email
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
 
@@ -123,18 +123,47 @@ if (contactForm && formStatus) {
         const formData = new FormData(contactForm);
         const name = formData.get('name');
         const email = formData.get('email');
+        const phone = formData.get('phone');
         const message = formData.get('message');
         
+        // Validation des champs requis
         if (!name || !email || !message) {
-            formStatus.textContent = 'Veuillez remplir tous les champs requis.';
+            formStatus.textContent = 'Veuillez remplir tous les champs requis (Nom, Email et Message).';
             formStatus.style.color = '#ff6b35';
             return;
         }
         
-        // Simulation d'envoi
-        formStatus.textContent = 'Merci ! Votre demande a été envoyée avec succès.';
+        // Construction du contenu de l'email
+        let emailSubject = 'Nouvelle demande de contact - DB-BAT';
+        let emailBody = `Bonjour,\n\n`;
+        emailBody += `Vous avez reçu une nouvelle demande de contact via le site web DB-BAT :\n\n`;
+        emailBody += `Nom : ${name}\n`;
+        emailBody += `Email : ${email}\n`;
+        if (phone) {
+            emailBody += `Téléphone : ${phone}\n`;
+        }
+        emailBody += `Message :\n${message}\n\n`;
+        emailBody += `Cordialement,\nSite web DB-BAT`;
+        
+        // Encodage des paramètres pour l'URL mailto
+        const encodedSubject = encodeURIComponent(emailSubject);
+        const encodedBody = encodeURIComponent(emailBody);
+        
+        // Création de l'URL mailto avec l'adresse dbbat94@gmail.com
+        const mailtoUrl = `mailto:dbbat94@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
+        
+        // Affichage du statut
+        formStatus.textContent = 'Ouverture de votre client email...';
         formStatus.style.color = '#4CAF50';
-        contactForm.reset();
+        
+        // Ouverture du client email par défaut
+        window.location.href = mailtoUrl;
+        
+        // Réinitialisation du formulaire après un délai
+        setTimeout(() => {
+            contactForm.reset();
+            formStatus.textContent = 'Votre demande a été préparée dans votre client email.';
+        }, 2000);
     });
 }
 

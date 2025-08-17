@@ -447,28 +447,29 @@
             <form id="contact-form" class="contact-form" novalidate>
               <div class="form-row">
                 <div class="form-field">
-                  <label for="name">Nom</label>
-                  <input id="name" name="name" type="text" autocomplete="name" required />
+                  <label for="name">Nom *</label>
+                  <input id="name" name="name" type="text" autocomplete="name" required placeholder="Votre nom complet" />
                 </div>
                 <div class="form-field">
-                  <label for="email">Email</label>
-                  <input id="email" name="email" type="email" autocomplete="email" required />
+                  <label for="email">Email *</label>
+                  <input id="email" name="email" type="email" autocomplete="email" required placeholder="votre.email@exemple.com" />
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-field full">
                   <label for="phone">Téléphone</label>
-                  <input id="phone" name="phone" type="tel" autocomplete="tel" />
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+33 6 12 34 56 78" />
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-field full">
-                  <label for="message">Message</label>
-                  <textarea id="message" name="message" rows="5" required></textarea>
+                  <label for="message">Message *</label>
+                  <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre projet ou votre demande..."></textarea>
                 </div>
               </div>
               <button type="submit" class="btn btn-primary submit">Envoyer ma demande</button>
               <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+              <p class="form-info">* Champs obligatoires. Votre demande sera envoyée directement par email.</p>
             </form>
           </div>
         </div>
