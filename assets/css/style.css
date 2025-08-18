@@ -124,6 +124,7 @@ p {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--space-xl);
+  overflow: hidden;
 }
 
 .section {
@@ -173,6 +174,97 @@ p {
   }
 }
 
+/* Responsive simplifié pour écrans 1400px - 1600px */
+@media (max-width: 1600px) and (min-width: 1401px) {
+  .container {
+    max-width: 1300px;
+    padding: 0 var(--space-lg);
+  }
+  
+  .hero-content {
+    max-width: 900px;
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+  
+  .hero-content h1 {
+    font-size: clamp(2.3rem, 4.5vw, 3.5rem);
+  }
+  
+  .section::before {
+    width: 87%;
+  }
+  
+  .section-head p {
+    max-width: 780px;
+  }
+}
+
+@media (max-width: 1500px) and (min-width: 1401px) {
+  .container {
+    max-width: 1200px;
+  }
+  
+  .hero-content {
+    max-width: 850px;
+  }
+  
+  .hero-content h1 {
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  }
+}
+
+@media (max-width: 1400px) {
+  .container {
+    max-width: 1100px;
+    padding: 0 var(--space-md);
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+  
+  .hero-content h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  
+  .section::before {
+    width: 90%;
+  }
+  
+  .section-head p {
+    max-width: 700px;
+  }
+}
+
+/* Responsive spécifique pour écrans 1400px - 1499px */
+@media (min-width: 1400px) and (max-width: 1499px) {
+  .container {
+    max-width: 1250px;
+    padding: 0 var(--space-lg);
+  }
+  
+  .hero-content {
+    max-width: 900px;
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+  
+  .hero-content h1 {
+    font-size: clamp(2.3rem, 4.5vw, 3.5rem);
+  }
+  
+  .section::before {
+    width: 87%;
+  }
+  
+  .section-head p {
+    max-width: 780px;
+  }
+}
+
 .section-head {
   margin-bottom: var(--space-3xl);
   text-align: center;
@@ -209,6 +301,32 @@ p {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Responsive pour les boutons - Solution simplifiée */
+@media (max-width: 1600px) and (min-width: 1401px) {
+  .btn {
+    padding: var(--space-md) var(--space-lg);
+    font-size: 0.9rem;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 1500px) and (min-width: 1401px) {
+  .btn {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: 0.85rem;
+    min-height: 40px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .btn {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.8rem;
+    min-height: 36px;
+  }
 }
 
 .btn::before {
@@ -493,6 +611,10 @@ p {
   margin: 0 auto;
   text-align: center;
   padding-top: var(--space-2xl);
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
 }
 
 /* Responsive pour écrans larges */
@@ -582,6 +704,53 @@ p {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive pour les boutons d'appel à l'action - Solution simplifiée */
+@media (max-width: 1600px) and (min-width: 1401px) {
+  .hero-ctas {
+    gap: var(--space-md);
+    max-width: 500px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .hero-ctas .btn {
+    padding: var(--space-md) var(--space-lg);
+    font-size: 0.9rem;
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 1500px) and (min-width: 1401px) {
+  .hero-ctas {
+    gap: var(--space-sm);
+    max-width: 450px;
+  }
+  
+  .hero-ctas .btn {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: 0.85rem;
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .hero-ctas {
+    gap: var(--space-sm);
+    max-width: 400px;
+    flex-direction: column;
+  }
+  
+  .hero-ctas .btn {
+    width: 100%;
+    max-width: 250px;
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.8rem;
+  }
 }
 
 /* Grilles et cartes avec design industriel */
@@ -676,20 +845,57 @@ p {
   gap: var(--space-xl);
   align-items: stretch;
   margin-top: var(--space-2xl);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Responsive pour écrans moyens */
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
   .cards {
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-lg);
+    padding: 0 var(--space-sm);
+  }
+}
+
+@media (max-width: 1500px) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+    padding: 0 var(--space-sm);
+  }
+  
+  .card-featured {
+    grid-column: 1 / 5;
+    grid-row: 2 / 3;
+  }
+}
+
+@media (max-width: 1400px) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+    padding: 0 var(--space-sm);
+  }
+}
+
+@media (max-width: 1300px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    padding: 0 var(--space-sm);
+  }
+  
+  .card-featured {
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
   }
 }
 
 @media (max-width: 1200px) {
   .cards {
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-lg);
+    gap: var(--space-md);
   }
 }
 
@@ -697,6 +903,7 @@ p {
   .cards {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-md);
+    padding: 0 var(--space-sm);
   }
   
   .card-featured {
@@ -739,6 +946,9 @@ p {
   clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
   box-shadow: var(--shadow-md);
   will-change: transform;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* Responsive pour les cartes */
@@ -949,6 +1159,8 @@ p {
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   padding: var(--space-xs) var(--space-xl) var(--space-lg) var(--space-xl);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Responsive pour la carte featured */
@@ -1299,17 +1511,38 @@ p {
 }
 
 /* Responsive pour écrans moyens */
+@media (max-width: 1600px) {
+  .project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 1500px) {
+  .project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: var(--space-md);
+  }
+}
+
 @media (max-width: 1400px) {
   .project-grid {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--space-xl);
+    gap: var(--space-md);
+  }
+}
+
+@media (max-width: 1300px) {
+  .project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-md);
   }
 }
 
 @media (max-width: 1200px) {
   .project-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
   }
 }
 
@@ -1406,17 +1639,38 @@ p {
 }
 
 /* Responsive pour écrans moyens */
+@media (max-width: 1600px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 1500px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: var(--space-md);
+  }
+}
+
 @media (max-width: 1400px) {
   .testimonial-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-lg);
+    gap: var(--space-md);
+  }
+}
+
+@media (max-width: 1300px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-md);
   }
 }
 
 @media (max-width: 1200px) {
   .testimonial-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--space-lg);
+    gap: var(--space-md);
   }
 }
 
@@ -1515,16 +1769,35 @@ p {
 }
 
 /* Responsive pour écrans moyens */
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
   .contact-grid {
     gap: var(--space-2xl);
+  }
+}
+
+@media (max-width: 1500px) {
+  .contact-grid {
+    gap: var(--space-xl);
+  }
+}
+
+@media (max-width: 1400px) {
+  .contact-grid {
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 1300px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1.3fr;
+    gap: var(--space-lg);
   }
 }
 
 @media (max-width: 1200px) {
   .contact-grid {
     grid-template-columns: 1fr 1.2fr;
-    gap: var(--space-2xl);
+    gap: var(--space-lg);
   }
 }
 
